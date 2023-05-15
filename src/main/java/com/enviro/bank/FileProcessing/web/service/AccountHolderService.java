@@ -59,7 +59,7 @@ public class AccountHolderService  implements FileParser{
 						break;
 					}
 					else {
-						System.out.println(name + surname);
+						System.out.println("Name and Surname was not varified \n looking for another Match");
 						continue;
 					}
 				
