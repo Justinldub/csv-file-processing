@@ -31,6 +31,7 @@ public class AccountHolderService  implements FileParser{
 	private String path;
 	public URI saveAccount(String name, String surname, File csvFile)
 	{
+	
 		AccountHolder acc = new AccountHolder();
 		Scanner fileIn = null;
 		URI httpimageLink = null;
@@ -108,7 +109,8 @@ public class AccountHolderService  implements FileParser{
 		Thread thread = new Thread();
 		String baseHttpLink = "v1apiimage";
 		File file = new File(path);
-		if(file.exists()) {
+		if(!file.exists()) {
+			file.mkdirs();
 			System.out.println("Image directory was found on  path : "+file.getAbsolutePath()+"\nDecoding image in progress... ");
 			byte[] bytes = Base64.getDecoder().decode(base64ImageData);
 			try {
