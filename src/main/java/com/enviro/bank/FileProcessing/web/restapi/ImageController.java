@@ -32,8 +32,8 @@ public class ImageController{
 		File file = new File(path+"/csvFile.csv");
 		ahs.parseCSV(file);
 		URI httpimageLink = ahs.saveAccount(name, surname, file);
-		File f = new File(httpimageLink);
-		FileSystemResource image = new FileSystemResource(f);
+		//File f = new File(httpimageLink);
+		FileSystemResource image = new FileSystemResource(new File(httpimageLink));
 		byte[] bytes = StreamUtils.copyToByteArray(image.getInputStream());
 		if(httpimageLink.toString().endsWith(".jpg")) {
 		return ResponseEntity.ok().contentType(MediaType.IMAGE_JPEG).body(bytes);
